@@ -1,0 +1,60 @@
+.cmpad {
+  padding-left: 80px;
+  padding-right: 80px;
+  margin: auto;
+}
+/* footer */
+.footer {
+  display: flex;
+  padding-top: 10px;
+  justify-content: space-between;
+  align-items: center;
+}
+.footer-left {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+/* .footer-right div {
+} */
+.footer-logo {
+  color: #55199f;
+  font-weight: 700;
+}
+.search-bar {
+  position: relative;
+}
+.search-bar input {
+  padding: 12px;
+  min-width: 500px;
+  border-radius: 10px;
+  border: 1px solid #e7e9ee;
+}
+.search_icon {
+  position: absolute;
+  padding: 12px;
+  right: 0;
+}
+.profile {
+  display: flex;
+  align-items: flex-end;
+  gap: 10px;
+}
+.profile-head {
+  font-size: 12px;
+}
+.profile-name {
+  margin: 0;
+  font-weight: 600;
+  /* font-weight: 500; */
+}
+.right-side {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+.icon_bg {
+  background-color: #f3f4f6;
+  padding: 5px;
+  border-radius: 50%;
+}

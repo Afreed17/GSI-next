@@ -1,10 +1,12 @@
 import React from "react";
+import Home from "./pages/Home";
+import "../src/app.css";
 
 const App = () => {
   return (
-    <div>
-      <h1 style={{ textAlign: "center" }}>GSI Next Project</h1>
-    </div>
+    <>
+      <Home />
+    </>
   );
 };
 
