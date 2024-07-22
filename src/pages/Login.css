@@ -1,0 +1,134 @@
+.login-page {
+  background: url('../images/bg.png') no-repeat center center fixed;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  font-family: Arial, sans-serif;
+}
+
+
+.login-container {
+  margin-top: -70px;
+  background-color: #f5c8ff;
+  border-radius: 20px;
+  padding: 20px;
+  width: 350px;
+  text-align: center;
+  box-shadow: 6px 7px 12px rgba(0, 0, 0, 0.5);
+}
+
+
+h2 {
+    margin-bottom: 10px;
+  color: #333;
+}
+
+
+p {
+  font-size: 14px;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+a {
+  color: #3333ff;
+  text-decoration: none;
+}
+
+.tabs {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 20px;
+}
+
+.tabs span {
+  cursor: pointer;
+  font-size: 16px;
+  color: #333;
+}
+
+.tabs .active {
+  text-decoration: none;
+}
+
+.input-group {
+  position: relative;
+  margin-bottom: 15px;
+}
+
+.input-group .fa-envelope,
+.input-group .fa-lock,
+.input-group .fa-eye {
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #666;
+}
+
+.input-group .fa-eye {
+  left: auto;
+  right: 10px;
+  cursor: pointer;
+}
+
+input[type="email"],
+input[type="password"] {
+  width: calc(100% - 40px);
+  padding: 10px 10px 10px 40px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  outline: none;
+}
+
+.remember-forgot {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+button {
+  width: 100%;
+  padding: 10px;
+  background-color: #0073e6;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #005bb5;
+}
+
+.social-icons {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 10px;
+}
+
+.social-icons i {
+  font-size: 24px;
+  color: #333;
+  cursor: pointer;
+}
+
+
+/* @media screen and (max-width: 360px){
+  .login-container {
+    width: 300px;
+  }
+} */
+
+@media screen and (max-width: 397px){
+  .login-container {
+    width: 290px;
+  }
+}
+
+
