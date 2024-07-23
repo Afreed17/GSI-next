@@ -5,7 +5,7 @@
   }
   
 
-  .footer {
+  .header {
     /* margin: -500px; */
     display: flex;
     padding-top: 10px;
@@ -13,13 +13,13 @@
     align-items: center;
   }
   
-  .footer-left {
+  .header-left {
     display: flex;
     align-items: center;
     gap: 20px;
   }
   
-  .footer-logo {
+  .header-logo {
     position: relative;
     top: -5px;
     color: #55199f;

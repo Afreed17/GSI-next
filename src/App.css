@@ -4,7 +4,7 @@
   margin: auto;
 }
 
-.footer {
+.header {
   /* margin: -300px; */
   display: flex;
   padding-top: 10px;
@@ -12,13 +12,13 @@
   /* align-items: center; */
 }
 
-.footer-left {
+.header-left {
   display: flex;
   align-items: center;
   gap: 20px;
 }
 
-.footer-logo {
+.header-logo {
   color: #55199f;
   font-weight: 700;
 }
@@ -65,4 +65,53 @@
   background-color: #f3f4f6;
   padding: 5px;
   border-radius: 50%;
+}
+
+/* discount */
+.discount {
+  margin-top: 30px;
+  display: flex;
+  justify-content: space-between;
+  /* gap: 10; */
+  flex-wrap: wrap;
+}
+.discount-head {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.discount-head div {
+  color: #c2c2c2;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 600;
+}
+.discount-card {
+  width: 30%;
+  position: relative;
+  padding:5px 0 30px 0;
+  cursor: pointer;
+}
+.discount-card_flex h3 {
+  margin: 0;
+}
+.discount-card_flex img {
+  padding-bottom: 10px;
+}
+.discount-img {
+  width: 100%;
+}
+.discount-desc {
+  color: #878787;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.discount-desc_right {
+  display: flex;
+}
+.discount-desc_right img {
+  margin-right: 8px;
 }

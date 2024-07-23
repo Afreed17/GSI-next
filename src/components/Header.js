@@ -3,13 +3,13 @@ import { Link } from "react-router-dom";
 import { CgProfile } from "react-icons/cg";
 import { CiBookmarkPlus, CiShoppingCart, CiSearch } from "react-icons/ci";
 // import logo from "../images/logo.png";
-import "./Footer.css"
+import "./header.css";
 
-const Footer = () => {
+const Header = () => {
   return (
-    <div className="cmpad footer">
-      <div className="footer-left">
-        <h2 className="footer-logo">GSI NEXT</h2>
+    <div className="cmpad header">
+      <div className="header-left">
+        <h2 className="header-logo">GSI NEXT</h2>
         <div className="search-bar">
           <input placeholder="Search Menu, restaurents etc"></input>
           <CiSearch size={20} className="search_icon" />
@@ -35,4 +35,4 @@ const Footer = () => {
   );
 };
 
-export default Footer;
+export default Header;
