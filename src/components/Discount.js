@@ -51,7 +51,7 @@ const data = [
 const Discount = () => {
   return (
     <div className="cmpad discount">
-      <div className=" discount-head">
+      <div className=" section-head">
         <h2>Top Discount</h2>
         <div>See All</div>
       </div>

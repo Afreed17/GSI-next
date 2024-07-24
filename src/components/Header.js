@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { CgProfile } from "react-icons/cg";
-import { CiBookmarkPlus, CiShoppingCart, CiSearch } from "react-icons/ci";
+import { CiBookmarkPlus, CiShoppingCart } from "react-icons/ci";
 // import logo from "../images/logo.png";
 import "./header.css";
 
@@ -12,7 +12,7 @@ const Header = () => {
         <h2 className="header-logo">GSI NEXT</h2>
         <div className="search-bar">
           <input placeholder="Search Menu, restaurents etc"></input>
-          <CiSearch size={20} className="search_icon" />
+          {/* <CiSearch size={20} className="search_icon" /> */}
         </div>
       </div>
       <div className="right-side">
@@ -22,7 +22,7 @@ const Header = () => {
           </div>
           <div>
             <div className="profile-head">Welcome</div>
-            <h3 className="profile-name">Farzeen</h3>
+            <h3 className="profile-name">User</h3>
           </div>
         </div>
         <CiBookmarkPlus size={28} className="icon_bg" />
