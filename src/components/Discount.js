@@ -50,42 +50,44 @@ const data = [
 
 const Discount = () => {
   return (
-    <div className="cmpad discount">
-      <div className=" section-head">
+    <>
+      <div className=" section-head cmpad">
         <h2>Top Discount</h2>
         <div>See All</div>
       </div>
-      <div className=" discount">
-        {data.map((item) => {
-          return (
-            <div key={item.id} className="discount-card">
-              <div className="discount-card_flex">
+      <div className="cmpad discount">
+        <div className=" discount">
+          {data.map((item) => {
+            return (
+              <div key={item.id} className="discount-card">
                 <div className="discount-card_flex">
-                  {/* <div className="discount-img"> */}
-                  <img className="discount-img" src={item.src} />
-                  {/* </div> */}
-                  <h3>{item.title}</h3>
-                  <div className="discount-desc">
-                    <div>{item.mile}</div>
-                    <div className="discount-desc_right">
-                      <img src={star} />
+                  <div className="discount-card_flex">
+                    {/* <div className="discount-img"> */}
+                    <img className="discount-img" src={item.src} />
+                    {/* </div> */}
+                    <h3>{item.title}</h3>
+                    <div className="discount-desc">
+                      <div>{item.mile}</div>
+                      <div className="discount-desc_right">
+                        <img src={star} />
 
-                      <div>{item.rating}</div>
+                        <div>{item.rating}</div>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
-            </div>
-          );
-        })}
+            );
+          })}
 
-        {/* <div>
+          {/* <div>
         <div>
           <img src={begopa} />
         </div>
       </div> */}
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 

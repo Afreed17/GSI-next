@@ -12,8 +12,7 @@ const Home = () => {
       <SwiperComponent />
       <Category />
       <Discount />
-      <Footer />
-
+      {/* <Footer /> */}
     </div>
   );
 };
