@@ -1,80 +1,97 @@
 .cmpad {
-    padding-left: 80px;
-    padding-right: 80px;
-    margin: 0px;
-  }
-  
+  padding-left: 80px;
+  padding-right: 80px;
+  margin: 0;
+}
 
-  .header {
-    /* margin: -500px; */
-    display: flex;
-    padding-top: 10px;
-    justify-content: space-between;
-    align-items: center;
+.cmpad.header.blur-background,
+.header-mob.blur-background {
+  filter: blur(5px);
+  transition: filter 0.3s ease-in-out;
+}
+
+.header {
+  display: flex;
+  padding-top: 10px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.header-logo {
+  position: relative;
+  top: -5px;
+  color: #55199f;
+  font-weight: 700;
+}
+
+.search-bar {
+  position: relative;
+}
+
+.search-bar input {
+  padding: 12px;
+  min-width: 500px;
+  border-radius: 10px;
+  border: 1px solid #e7e9ee;
+}
+
+.search_icon {
+  position: absolute;
+  padding: 12px;
+  right: 0;
+}
+
+.profile {
+  display: flex;
+  align-items: flex-end;
+  gap: 10px;
+}
+
+.profile-head {
+  font-size: 12px;
+}
+
+.profile-name {
+  margin: 0;
+  font-weight: 600;
+}
+
+.right-side {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+.icon_bg {
+  background-color: #f3f4f6;
+  padding: 5px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.login-btn {
+  background-color: #55199f;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 768px) {
+  .cmpad {
+    padding-left: 10px;
+    padding-right: 10px;
   }
-  
-  .header-left {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-  }
-  
-  .header-logo {
-    position: relative;
-    top: -5px;
-    color: #55199f;
-    font-weight: 700;
-  }
-  
-  .search-bar {
-    position: relative;
-  }
-  
+
   .search-bar input {
-    padding: 12px;
-    min-width: 500px;
-    border-radius: 10px;
-    border: 1px solid #e7e9ee;
+    min-width: unset;
+    width: 100%;
   }
-  
-  .search_icon {
-    position: absolute;
-    padding: 12px;
-    right: 0;
-  }
-  
-  .profile {
-    display: flex;
-    align-items: flex-end;
-    gap: 10px;
-  }
-  
-  .profile-head {
-    font-size: 12px;
-  }
-  
-  .profile-name {
-    margin: 0;
-    font-weight: 600;
-  }
-  
-  .right-side {
-    display: flex;
-    align-items: center;
-    gap: 30px;
-  }
-  
-  .icon_bg {
-    background-color: #f3f4f6;
-    padding: 5px;
-    border-radius: 50%;
-  }
-  
-  .login-btn {
-    background-color: #55199f;
-    color: white;
-    border: none;
-    padding: 8px 16px;
-    border-radius: 5px;
-    cursor: pointer;
-  }
+}

@@ -1,22 +1,33 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { CgProfile } from "react-icons/cg";
 import { CiBookmarkPlus, CiShoppingCart } from "react-icons/ci";
 import profile from "../images/profile.png";
 import saved from "../images/saved.png";
 import bag from "../images/bag.png";
+import Cart from "./Cart.js";
+
 import "./header.css";
 
 const Header = () => {
+  const [cartOpen, setCartOpen] = useState(false);
+
+  const handleCartClick = () => {
+    // console.log(!cartOpen);
+    // setCartOpen(true);
+    setCartOpen(!cartOpen);
+  }
+  
+
+  // console.log(cartOpen);
+
   return (
     <>
-      <div className="cmpad header">
+    
+      <div className={`cmpad header`}>
         <div className="header-left">
           <h2 className="header-logo">GSI</h2>
-          {/* <div className="search-bar"> */}
-          <input placeholder="Search Menu, restaurents etc"></input>
-          {/* <CiSearch size={20} className="search_icon" /> */}
-          {/* </div> */}
+          <input placeholder="Search Menu, restaurants etc" />
         </div>
         <div className="right-side">
           <div className="profile">
@@ -54,8 +65,9 @@ const Header = () => {
           <img src={saved} />
         </div>
       </div>
+      {cartOpen && <Cart />}
     </>
-  );
-};
+  )
+}
 
 export default Header;

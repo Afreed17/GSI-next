@@ -17,7 +17,7 @@
 }
 @media screen and (min-width: 576px) {
   .swiper-slide {
-    /* padding: 20px; */
+    padding: 20px;
   }
 }
 
@@ -31,6 +31,6 @@
 
 .slide-image {
   max-width: 100%;
-  height: auto;
+  height: 270px;
   pointer-events: none;
 }
