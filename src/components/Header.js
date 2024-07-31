@@ -4,7 +4,7 @@ import { CgProfile } from "react-icons/cg";
 import { CiBookmarkPlus, CiShoppingCart } from "react-icons/ci";
 import profile from "../images/profile.png";
 import saved from "../images/saved.png";
-import cart from "../images/cart.png";
+import bag from "../images/bag.png";
 import "./header.css";
 
 const Header = () => {
@@ -28,8 +28,14 @@ const Header = () => {
               <h3 className="profile-name">User</h3>
             </div>
           </div>
-          <CiBookmarkPlus size={28} className="icon_bg" />
-          <CiShoppingCart size={28} className="icon_bg" />
+          {/* <CiBookmarkPlus size={28} className="icon_bg" /> */}
+          <div style={{ alignSelf: "center", cursor: "pointer" }}>
+            <img src={saved} />
+          </div>
+          {/* <CiShoppingCart size={28} className="icon_bg" /> */}
+          <div style={{ alignSelf: "center", cursor: "pointer" }}>
+            <img src={bag} />
+          </div>
           <Link to="/login">
             <button className="login-btn">Login</button>
           </Link>
@@ -42,7 +48,7 @@ const Header = () => {
           </div>
         </div>
         <div style={{ alignSelf: "center" }}>
-          <img src={cart} />
+          <img src={bag} />
         </div>
         <div style={{ alignSelf: "center" }}>
           <img src={saved} />

@@ -168,14 +168,31 @@
   padding: 5px 0 30px 0;
   cursor: pointer;
 }
+.discount-card_flex {
+  position: relative;
+  overflow: hidden;
+}
+.deals-active_cart {
+  color: black;
+  border-radius: 15px;
+  position: absolute;
+  background-color: white;
+  padding: 0;
+  top: 20px;
+  right: 20px;
+}
+.deals-active_cart:hover{
+  background-color: seashell;
+}
 .discount-card_flex h3 {
   margin: 0;
 }
-.discount-card_flex img {
+/* .discount-card_flex img {
   padding-bottom: 10px;
-}
+} */
 .discount-img {
   width: 100%;
+  padding-bottom: 10px;
 }
 .discount-desc {
   color: #878787;

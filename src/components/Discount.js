@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import starbuck from "../images/starbuck.png";
 import begopa from "../images/begopa.png";
 import star from "../images/Star.png";
@@ -49,6 +49,7 @@ const data = [
 ];
 
 const Discount = () => {
+  const [showPopup, setShowPopup] = useState(false);
   return (
     <>
       <div className=" section-head cmpad">
@@ -59,7 +60,11 @@ const Discount = () => {
         <div className=" discount">
           {data.map((item) => {
             return (
-              <div key={item.id} className="discount-card">
+              <div
+                key={item.id}
+                className="discount-card"
+                // onClick={() => handlePopup(item)}
+              >
                 <div className="discount-card_flex">
                   <div className="discount-card_flex">
                     {/* <div className="discount-img"> */}
