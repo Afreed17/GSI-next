@@ -181,15 +181,12 @@
   top: 20px;
   right: 20px;
 }
-.deals-active_cart:hover{
+.deals-active_cart:hover {
   background-color: seashell;
 }
 .discount-card_flex h3 {
   margin: 0;
 }
-/* .discount-card_flex img {
-  padding-bottom: 10px;
-} */
 .discount-img {
   width: 100%;
   padding-bottom: 10px;
@@ -208,6 +205,65 @@
   margin-right: 8px;
 }
 
+/* details-popup  */
+.popup-overlay {
+  z-index: 5;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(151, 136, 187, 0.2);
+  backdrop-filter: blur(3px); /* Adjust the value as needed */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.popup-content {
+  background: white;
+  padding: 20px;
+  width: 65%;
+  height: 85%; /* Ensures the height is also 50% of the viewport */
+  border-radius: 20px;
+  text-align: center;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  overflow-y: auto; /* Ensure scrollability */
+}
+
+.popup_img {
+  width: 70%;
+  margin: auto;
+  display: inline-block;
+}
+
+.popup_img img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.popup-btn {
+  width: 100%;
+  padding: 20px 15px;
+  background-color: #55199f;
+  border: none;
+  border-radius: 10px;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+/* Media Queries */
+@media screen and (min-width: 500px) {
+  .popup-content {
+    height: 87%;
+  }
+}
 @media screen and (min-width: 576px) {
   .cmpad {
     padding-left: 20px;
@@ -218,6 +274,14 @@
     width: 46%;
   }
 }
+
+@media screen and (min-width: 650px) {
+  .popup_img {
+    width: 50%;
+    margin: auto;
+  }
+}
+
 @media screen and (min-width: 768px) {
   .cat-swiper .swiper-content img {
     width: 100%;
@@ -243,11 +307,22 @@
     width: 100%;
   }
 }
+
+@media screen and (min-width: 992px) {
+  .popup_img {
+    width: 40%;
+    margin: auto;
+  }
+}
+
 @media screen and (min-width: 1200px) {
   .cmpad {
     padding-left: 80px;
     padding-right: 80px;
     margin: auto;
+  }
+  .popup-content {
+    height: 85%;
   }
   .search-bar input {
     min-width: 500px;
