@@ -1,10 +1,11 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 // import starbuck from "../images/starbuck.png";
 // import begopa from "../images/begopa.png";
 // import star from "../images/Star.png";
 import apple_watch from "../images/apple_watch.png";
 import samsung_watch from "../images/samsung_watch.png";
 import Activecart from "../images/activecart.png";
+import { ManageCartContext } from "../Manage/ManageCart";
 
 const data = [
   {
@@ -64,6 +65,20 @@ const data = [
 const DealCard = ({ item }) => {
   const [product, setProduct] = useState({});
   const [showPopup, setShowPopup] = useState(false);
+  const { addToCart } = useContext(ManageCartContext);
+  const [message, setMessage] = useState("");
+
+  const handleAddToCart = (item) => {
+    if (typeof setMessage !== "function") {
+      console.log("setMessage is not a function:", setMessage);
+    } else {
+      addToCart(item);
+      alert("Product Added to cart successfully");
+      setTimeout(() => {
+        setMessage("");
+      }, 2000);
+    }
+  };
 
   const togglePopup = (item) => {
     setShowPopup(!showPopup);
@@ -73,7 +88,11 @@ const DealCard = ({ item }) => {
   return (
     <div key={item.id} className="discount-card">
       <div className="discount-card_flex">
-        <img className="deals-active_cart" src={Activecart} />
+        <img
+          className="deals-active_cart"
+          src={Activecart}
+          onClick={() => handleAddToCart(item)}
+        />
         <img
           className="discount-img"
           src={item.src}
@@ -129,4 +148,4 @@ const Discount = () => {
   );
 };
 
-export default Discount;
+export default Discount;

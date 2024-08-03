@@ -5,7 +5,7 @@ import Category from "../components/Category";
 import Footer from "../components/Footer";
 import SwiperComponent from "../components/SwiperComponent";
 import ShopByBrand from "../components/ShopByBrand";
-import ChatBot from "../components/ChatBot";
+// import ChatBot from "../components/ChatBot";
 import Deals from "../components/Deals";
 
 const Home = () => {
@@ -25,3 +25,4 @@ const Home = () => {
 };
 
 export default Home;
+

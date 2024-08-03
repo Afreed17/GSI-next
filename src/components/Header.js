@@ -1,26 +1,16 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { CgProfile } from "react-icons/cg";
-import { CiBookmarkPlus, CiShoppingCart } from "react-icons/ci";
+// import { CiBookmarkPlus, CiShoppingCart } from "react-icons/ci";
 import profile from "../images/profile.png";
 import saved from "../images/saved.png";
 import bag from "../images/bag.png";
-import Cart from "./Cart.js";
+// import Cart from "../pages/Cart.js";
 
 import "./header.css";
 
+
 const Header = () => {
-  const [cartOpen, setCartOpen] = useState(false);
-
-  const handleCartClick = () => {
-    // console.log(!cartOpen);
-    // setCartOpen(true);
-    setCartOpen(!cartOpen);
-  }
-  
-
-  // console.log(cartOpen);
-
   return (
     <>
     
@@ -44,9 +34,11 @@ const Header = () => {
             <img src={saved} />
           </div>
           {/* <CiShoppingCart size={28} className="icon_bg" /> */}
+          <Link to="/Cart">
           <div style={{ alignSelf: "center", cursor: "pointer" }}>
             <img src={bag} />
           </div>
+          </Link>
           <Link to="/login">
             <button className="login-btn">Login</button>
           </Link>
@@ -65,7 +57,6 @@ const Header = () => {
           <img src={saved} />
         </div>
       </div>
-      {cartOpen && <Cart />}
     </>
   )
 }
