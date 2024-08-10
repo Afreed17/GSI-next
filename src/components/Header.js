@@ -30,9 +30,11 @@ const Header = () => {
             </div>
           </div>
           {/* <CiBookmarkPlus size={28} className="icon_bg" /> */}
+          <Link to="/Product"> 
           <div style={{ alignSelf: "center", cursor: "pointer" }}>
             <img src={saved} />
           </div>
+          </Link>
           {/* <CiShoppingCart size={28} className="icon_bg" /> */}
           <Link to="/Cart">
           <div style={{ alignSelf: "center", cursor: "pointer" }}>

@@ -13,7 +13,6 @@ const SwiperComponent = () => {
   return (
     <div className="cmpad">
       <Swiper
-        // pagination={{ dynamicBullets: true }}
         loop={true}
         autoplay={{
           delay: 2500,
@@ -26,24 +25,17 @@ const SwiperComponent = () => {
         modules={[Autoplay, Pagination]}
         className="mySwiper"
       >
-        <SwiperSlide className="swiper-slide">
+        <SwiperSlide>
           <img src={slide1Image} alt="Slide 1" className="slide-image" />
         </SwiperSlide>
 
-        <SwiperSlide className="swiper-slide">
+        <SwiperSlide>
           <img src={slide2Image} alt="Slide 2" className="slide-image" />
         </SwiperSlide>
 
-        <SwiperSlide className="swiper-slide">
-          <img src={slide3Image} alt="Slide 2" className="slide-image" />
+        <SwiperSlide>
+          <img src={slide3Image} alt="Slide 3" className="slide-image" />
         </SwiperSlide>
-
-        {/* <SwiperSlide className="swiper-slide">Slide 4</SwiperSlide>
-    <SwiperSlide className="swiper-slide">Slide 5</SwiperSlide>
-    <SwiperSlide className="swiper-slide">Slide 6</SwiperSlide>
-    <SwiperSlide className="swiper-slide">Slide 7</SwiperSlide>
-    <SwiperSlide className="swiper-slide">Slide 8</SwiperSlide>
-    <SwiperSlide className="swiper-slide">Slide 9</SwiperSlide> */}
       </Swiper>
     </div>
   );

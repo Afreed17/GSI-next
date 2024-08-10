@@ -6,6 +6,7 @@ import Register from "./pages/Register";
 import Cart from "./pages/Cart";
 import "../src/App.css";
 import { CartProvider } from "./Manage/ManageCart";
+import Product from "./pages/Product"
 
 const App = () => {
   return (
@@ -16,6 +17,8 @@ const App = () => {
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
           <Route path="/cart" element={<Cart />} />
+          <Route path="/product" element={<Product />} />
+
         </Routes>
       </Router>
     </CartProvider>
