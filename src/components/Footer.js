@@ -401,10 +401,10 @@ const Footer = () => {
           Reserved
         </p>
         <div className="footer-links">
-          <a href="#">Privacy Policy</a>
-          <a href="#">Terms & Conditions</a>
-          <a href="#">Refund & Cancellation</a>
-          <a href="#">Warranty & Return Policy</a>
+          <a href="/privacy-policy">Privacy Policy</a>
+          <a href="/Terms&Conditions">Terms & Conditions</a>
+          <a href="/Refund-Cancellation">Refund & Cancellation</a>
+          <a href="/Warranty&Return">Warranty & Return Policy</a>
         </div>
       </div>
     </div>
