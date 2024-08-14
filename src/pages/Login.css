@@ -8,23 +8,20 @@
   font-family: Arial, sans-serif;
 }
 
-
 .login-container {
   margin-top: -70px;
   background-color: #f5c8ff;
   border-radius: 20px;
   padding: 20px;
-  width: 350px;
+  width: 400px;
   text-align: center;
   box-shadow: 6px 7px 12px rgba(0, 0, 0, 0.5);
 }
-
 
 h2 {
   margin-bottom: 10px;
   color: #333;
 }
-
 
 p {
   font-size: 14px;
@@ -55,24 +52,27 @@ a {
 
 .input-group {
   position: relative;
-  margin-bottom: 15px;
+  margin-bottom: 20px; 
+  height: 53px;
+  
 }
 
+.input-group .fa-user,
 .input-group .fa-envelope,
 .input-group .fa-lock,
-.input-group .fa-eye,
-.input-group .fa-user {
+.input-group .fa-phone {
   position: absolute;
   left: 10px;
-  top: 50%;
+  top: 35%;
   transform: translateY(-50%);
   color: #666;
 }
 
-.input-group .fa-eye {
-  left: auto;
+.input-group .fa-eye{
+  position: absolute;
   right: 10px;
-  cursor: pointer;
+  top: 35%;
+  transform: translateY(-50%);
 }
 
 input[type="text"],
@@ -85,12 +85,29 @@ input[type="password"] {
   outline: none;
 }
 
-.remember-forgot {
+.input-row {
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  margin-bottom: 20px;
 }
+
+.input-row .input-group {
+  width: 48%;
+}
+
+.error-text {
+  color: red;
+  font-size: 12px;
+  position: absolute;
+  bottom: -22px;
+  left: 0;
+  text-align: left;
+  width: 100%;
+}
+
+#error1, #error2{
+  bottom: 0px;
+}
+
 
 button {
   width: 100%;
@@ -120,19 +137,33 @@ button:hover {
   cursor: pointer;
 }
 
-
-/* @media screen and (max-width: 360px){
+@media screen and (max-width: 500px) {
   .login-container {
-    width: 300px;
+    width: 90%;
   }
-} */
-
-@media screen and (max-width: 397px){
-  .login-container {
-    width: 290px;
+  .input-row {
+    flex-direction: column;
+  }
+  .input-row .input-group {
+    width: 100%;
   }
 }
 
-.full-width-input {
-  width: 100%;
+
+.remember-forgot {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.remember-forgot label {
+  display: flex;
+  align-items: center;
+}
+
+.remember-forgot a {
+  margin-left: auto;
+  text-decoration: none;
+  color: #3333ff;
 }
