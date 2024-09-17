@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
+import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
-import './Login.css';
+import './Login.css'; // Ensure this path is correct or remove if not needed
 import SuccessPopup from '../components/PopUp';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEnvelope, faLock, faUser, faPhone } from '@fortawesome/free-solid-svg-icons';
@@ -11,22 +12,19 @@ const Register = () => {
   const [password, setPassword] = useState('');
   const [password1, setPassword1] = useState('');
   const [name, setName] = useState('');
-  const [mobile, setMobile] = useState('');
+  const [phoneNumber, setPhoneNumber] = useState(''); // Updated to phoneNumber
   const [errors, setErrors] = useState({});
+  const [isPopupVisible, setIsPopupVisible] = useState(false);
   const navigate = useNavigate();
 
   const handleEmailChange = (e) => setEmail(e.target.value);
   const handlePasswordChange = (e) => setPassword(e.target.value);
   const handlePassword1Change = (e) => setPassword1(e.target.value);
   const handleNameChange = (e) => setName(e.target.value);
-  const handleMobileChange = (e) => setMobile(e.target.value);
-  
-  const [isPopupVisible, setIsPopupVisible] = useState(false);
+  const handlePhoneNumberChange = (e) => setPhoneNumber(e.target.value); // Updated to phoneNumber
 
   const validate = () => {
-    
     const errors = {};
-
     if (!name.trim()) {
       errors.name = 'Full Name is required';
     }
@@ -35,10 +33,10 @@ const Register = () => {
     } else if (!/\S+@\S+\.\S+/.test(email)) {
       errors.email = 'Email Address is invalid';
     }
-    if (!mobile) {
-      errors.mobile = 'Mobile Number is required';
-    } else if (!/^\d{10}$/.test(mobile)) {
-      errors.mobile = 'Mobile Number is invalid';
+    if (!phoneNumber) { // Updated to phoneNumber
+      errors.phoneNumber = 'Phone Number is required'; // Updated to phoneNumber
+    } else if (!/^\d{10}$/.test(phoneNumber)) { // Updated to phoneNumber
+      errors.phoneNumber = 'Phone Number is invalid'; // Updated to phoneNumber
     }
     if (!password) {
       errors.password = 'Password is required';
@@ -48,13 +46,10 @@ const Register = () => {
     if (password !== password1) {
       errors.password1 = 'Passwords do not match';
     }
-
     return errors;
   };
 
-
-
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     const validationErrors = validate();
     if (Object.keys(validationErrors).length > 0) {
@@ -62,19 +57,55 @@ const Register = () => {
       return;
     }
     setErrors({});
-    setIsPopupVisible(true);
-  // console.log('Form submitted successfully');
+  
+    const userData = {
+      name,
+      email,
+      phone_number: phoneNumber,
+      password,
+    };
+  
+    try {
+      const response = await fetch('https://test-server-r5re.onrender.com/insert/user', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(userData),
+      });
+  
+      if (response.ok) {
+        setIsPopupVisible(true);
+        // Redirect to the login page after registration
+        setTimeout(() => {
+          navigate('/login');
+        }, 3000); // Optional delay to show the success popup before redirecting
+      } else {
+        // Log the response for debugging purposes
+        const errorData = await response.json();
+        console.error('Failed to register:', errorData);
+        setErrors({ general: errorData.message || 'Failed to register. Please try again.' });
+      }
+    } catch (error) {
+      console.error('Error during registration:', error);
+      setErrors({ general: 'An error occurred during registration. Please try again later.' });
+    }
   };
   
+
+
+
+
   const closePopup = () => {
     setIsPopupVisible(false);
+    navigate('/login'); // Redirect to login page after registration
   };
 
   return (
     <div className="login-page">
       <div className="login-container">
         <h2>Register</h2>
-        <p>By signing up you are agreeing to our <a href="#">Term and privacy policy</a></p>
+        <p>By signing up you are agreeing to our <a href="#">Terms and privacy policy</a></p>
         <div className="tabs">
           <span onClick={() => navigate('/login')}>Login</span>
           <span className="active">Register</span>
@@ -84,7 +115,7 @@ const Register = () => {
           <div className="input-row">
             <div className="input-group">
               <FontAwesomeIcon icon={faUser} />
-              <input type="text" id="name" placeholder="Full Name" value={name} onChange={handleNameChange} className="full-width-input"/>
+              <input type="text" id="name" placeholder="Full Name" value={name} onChange={handleNameChange} className="full-width-input" />
               {errors.name && <p className="error-text">{errors.name}</p>}
             </div>
             <div className="input-group">
@@ -97,8 +128,8 @@ const Register = () => {
           <div className="input-row">
             <div className="input-group">
               <FontAwesomeIcon icon={faPhone} />
-              <input type="text" id="mobile" placeholder="Mobile Number" value={mobile} onChange={handleMobileChange} />
-              {errors.mobile && <p className="error-text">{errors.mobile}</p>}
+              <input type="text" id="phoneNumber" placeholder="Phone Number" value={phoneNumber} onChange={handlePhoneNumberChange} /> {/* Updated to phoneNumber */}
+              {errors.phoneNumber && <p className="error-text">{errors.phoneNumber}</p>} {/* Updated to phoneNumber */}
             </div>
             <div className="input-group">
               <FontAwesomeIcon icon={faLock} />
@@ -122,7 +153,8 @@ const Register = () => {
             <FontAwesomeIcon icon={faGoogle} />
           </div>
         </form>
-        {isPopupVisible && <SuccessPopup message = "Registration Successfull" onClose={closePopup} />}
+        {isPopupVisible && <SuccessPopup message="Registration Successful" onClose={closePopup} />}
+        {errors.general && <p className="error-text">{errors.general}</p>}
       </div>
     </div>
   );

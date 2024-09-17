@@ -1,22 +1,20 @@
 import React, { useState } from 'react';
+import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import './Login.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEnvelope, faLock, faEye } from '@fortawesome/free-solid-svg-icons';
 import { faFacebook, faApple, faGoogle } from '@fortawesome/free-brands-svg-icons';
 import SuccessPopup from '../components/PopUp';
-// import Home from './Home';
-
 
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [emailError, setEmailError] = useState('');
   const [passwordError, setPasswordError] = useState('');
-  const navigate = useNavigate();
-  
+  const [errorMessage, setErrorMessage] = useState('');
   const [showPopup, setShowPopup] = useState(false);
-
+  const navigate = useNavigate();
 
   const handleEmailChange = (e) => {
     setEmail(e.target.value);
@@ -44,24 +42,38 @@ const Login = () => {
     return valid;
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     
     if (validateForm()) {
-      setShowPopup(true);
-  };
-};
+      try {
+        const response = await axios.post('https://test-server-r5re.onrender.com/login', {
+          email,
+          password,
+        });
 
-const handleClosePopup = () => {
-  setShowPopup(false);
-  // navigate(Home);
-};
+        if (response.data.isValid) {
+          setShowPopup(true);
+        } else {
+          setErrorMessage('Invalid email or password.');
+        }
+      } catch (error) {
+        console.error('Error during login:', error);
+        setErrorMessage('An error occurred. Please try again.');
+      }
+    }
+  };
+
+  const handleClosePopup = () => {
+    setShowPopup(false);
+    navigate('/dashboard'); // Redirect to a dashboard or home page
+  };
 
   return (
     <div className="login-page">
       <div className="login-container">
         <h2>Login</h2>
-        <p>By signing in you are agreeing to our <a href="#">Term and privacy policy</a></p>
+        <p>By signing in you are agreeing to our <a href="#">Terms and privacy policy</a></p>
         <div className="tabs">
           <span className="active">Login</span>
           <span onClick={() => navigate('/register')}>Register</span>
@@ -69,21 +81,21 @@ const handleClosePopup = () => {
         <form onSubmit={handleSubmit}>
           <div className="input-group">
             <FontAwesomeIcon icon={faEnvelope} />
-            <input type="email" id="email" placeholder="Email Address" value={email} onChange={handleEmailChange}/>
-            {emailError && <span className="error-text" id='error1'>{emailError}</span>}
+            <input type="email" id="email" placeholder="Email Address" value={email} onChange={handleEmailChange} />
+            {emailError && <span className="error-text">{emailError}</span>}
           </div>
           <div className="input-group">
             <FontAwesomeIcon icon={faLock} />
-            <input type="password" id="password" placeholder="Password" value={password} onChange={handlePasswordChange}/>
+            <input type="password" id="password" placeholder="Password" value={password} onChange={handlePasswordChange} />
             <FontAwesomeIcon icon={faEye} />
-            {passwordError && <span className="error-text" id='error2'>{passwordError}</span>}
+            {passwordError && <span className="error-text">{passwordError}</span>}
           </div>
           <div className="remember-forgot">
             <label>
               <input type="checkbox" />
               Remember password
             </label>
-            <a href="#">Forget password</a>
+            <a href="#">Forgot password</a>
           </div>
           <button type="submit">Login</button>
           <p>or connect with</p>
@@ -93,7 +105,8 @@ const handleClosePopup = () => {
             <FontAwesomeIcon icon={faGoogle} />
           </div>
         </form>
-        {showPopup && (<SuccessPopup message="Login Successful!" onClose={handleClosePopup}/>)}
+        {showPopup && (<SuccessPopup message="Login Successful!" onClose={handleClosePopup} />)}
+        {errorMessage && <div className="error-text">{errorMessage}</div>}
       </div>
     </div>
   );
